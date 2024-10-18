@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>58 Days PHP Course</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('your-background-image-url.jpg'); /* Customize this */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-6">58 Days PHP Course</h1>
+        
+        <div class="bg-white shadow-lg rounded-lg p-4">
+            <div id="topic-list">
+                <!-- Topics will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 58 Days PHP Course Topics
+        const topics = [
+            "Day 01 - Setting Up the Environment: Download and install XAMPP, Verify your PHP installation, Download and install Composer, Install VS Code, Install essential VS Code extensions for PHP.",
+            "Day 02 - Basic PHP Syntax: Write your first PHP script ('Hello World'), Run your PHP script from the terminal, Explore variable naming conventions in PHP, Understand different variable types in PHP.",
+            "Day 03 - Working with Variables: Practice declaring and using variables, Understand variable scope in PHP, Learn about global and local variables, Use superglobals like $_GET and $_POST.",
+            "Day 04 - Constants and Comments: Define and use constants in PHP, Differentiate between define() and const, Add single-line comments to your code, Practice multi-line comments in PHP.",
+            "Day 05 - Conditional Statements: Write basic if statements, Use else and elseif conditions, Understand the ternary operator, Explore the switch statement.",
+            "Day 06 - Loops in PHP: Write a for loop, Explore the while loop, Understand the do-while loop, Loop through arrays using foreach.",
+            "Day 07 - Introduction to Arrays: Create indexed arrays, Access elements in an array, Loop through indexed arrays, Modify array elements.",
+            "Day 08 - Associative Arrays: Create associative arrays, Access elements in associative arrays, Loop through associative arrays using foreach, Understand the difference between indexed and associative arrays.",
+            "Day 09 - Multidimensional Arrays: Declare a multidimensional array, Access elements in a multidimensional array, Loop through a multidimensional array, Work with associative multidimensional arrays.",
+            "Day 10 - Array Functions: Use array_values() and array_keys(), Combine arrays using array_combine(), Add elements to arrays with array_push(), Remove elements using array_pop() and array_shift().",
+            "Day 11 - Advanced Array Operations: Slice arrays with array_slice(), Replace parts of arrays using array_splice(), Search arrays with in_array() and array_search(), Count array elements using count() and sizeof().",
+            "Day 12 - Sorting Arrays: Sort arrays in ascending order with sort(), Sort arrays in descending order with rsort(), Sort arrays by key with ksort() and krsort(), Use natural order sorting with natsort().",
+            "Day 13 - Introduction to Strings: Create and manipulate string variables, Concatenate strings in PHP, Explore string interpolation, Handle special characters in strings.",
+            "Day 14 - Basic String Functions: Measure string length with strlen(), Find a substring using strpos(), Extract a substring with substr(), Convert strings to lowercase and uppercase (strtolower(), strtoupper()).",
+            "Day 15 - Advanced String Functions: Replace parts of a string with str_replace(), Repeat strings with str_repeat(), Reverse a string using strrev(), Split a string into an array with explode().",
+            "Day 16 - String Manipulation: Remove whitespace with trim(), ltrim(), and rtrim(), Compare strings with strcmp(), Hash strings with md5() and sha1(), Format strings using sprintf().",
+            "Day 17 - Regular Expressions with Strings: Match patterns in strings using preg_match(), Replace patterns with preg_replace(), Extract multiple matches with preg_match_all(), Use advanced regex patterns for string validation.",
+            "Day 18 - Working with Forms: Create an HTML form, Handle form submission with PHP, Validate form inputs, Sanitize user input.",
+            "Day 19 - File Handling Basics: Open files using fopen(), Read files with fread(), Write to files with fwrite(), Close files using fclose().",
+            "Day 20 - File Uploads: Handle file uploads with $_FILES, Validate uploaded files, Move uploaded files using move_uploaded_file(), Display uploaded files in the browser.",
+            "Day 21 - Sessions in PHP: Start a session in PHP, Store and retrieve session data, Destroy a session, Understand where session data is stored.",
+            "Day 22 - Cookies in PHP: Set cookies in PHP, Retrieve cookie values, Delete cookies, Compare sessions and cookies.",
+            "Day 23 - Object-Oriented Programming (OOP) Basics: Create a class in PHP, Instantiate objects from a class, Add properties and methods to a class, Use the __construct method.",
+            "Day 24 - OOP Inheritance: Implement inheritance between classes, Override methods in child classes, Use the parent keyword to access parent methods, Understand abstract classes.",
+            "Day 25 - Access Modifiers: Use public properties and methods, Implement protected properties and methods, Understand private properties and methods, Practice using access modifiers in OOP.",
+            "Day 26 - Working with MySQL: Connect to MySQL using MySQLi, Execute basic SQL queries, Fetch data from the database, Close the database connection.",
+            "Day 27 - Prepared Statements: Use prepared statements with MySQLi, Bind parameters to prepared statements, Execute and fetch results from prepared statements, Handle errors in prepared statements.",
+            "Day 28 - Working with JSON: Encode PHP arrays to JSON, Decode JSON to PHP arrays, Handle JSON data in APIs, Work with JSON and forms.",
+            "Day 29 - Error Handling Basics: Understand syntax errors, Handle fatal errors in PHP, Manage warnings and notices, Use custom error handling with trigger_error().",
+            "Day 30 - Debugging in PHP: Use var_dump() and print_r() for debugging, Set up XDebug in VS Code, Set breakpoints and step through code, Watch variables in XDebug.",
+            "Day 31 - Regular Expressions: Use preg_match() to validate input, Search for patterns with preg_match_all(), Replace text using preg_replace(), Practice using regex in form validation.",
+            "Day 32 - File System Operations: Create and delete directories in PHP, Read directory contents with scandir(), Copy and move files in PHP, Handle file paths using realpath().",
+            "Day 33 - Advanced Error Handling: Use try-catch blocks for exceptions, Create custom exception classes, Log exceptions to a file, Display user-friendly error messages.",
+            "Day 34 - Functions with Parameters and Return Types: Define functions with parameters, Use functions with default parameter values, Return values from functions, Understand type hinting in function arguments.",
+            "Day 35 - Advanced Array Functions: Use array_map() to apply a function to array elements, Filter arrays with array_filter(), Merge arrays using array_merge(), Replace array values using array_replace().",
+            "Day 36 - Working with Sessions: Start and manage sessions in PHP, Store and retrieve session data, Implement session security, Destroy sessions properly.",
+            "Day 37 - Object-Oriented Programming: Static Properties and Methods: Define static properties in a class, Access static properties without instantiation, Create static methods in a class, Call static methods without creating an instance.",
+            "Day 38 - Advanced Object-Oriented Programming: Use traits for code reuse in classes, Understand interfaces and polymorphism, Implement design patterns (Singleton, Factory), Explore dependency injection in PHP.",
+            "Day 39 - File Handling: Reading and Writing: Read entire files using file_get_contents(), Write to files using file_put_contents(), Handle file locking for safe writing, Work with large files efficiently.",
+            "Day 40 - Security Best Practices: Prevent SQL injection with prepared statements, Sanitize user input with htmlspecialchars(), Protect against XSS attacks, Use HTTPS for secure connections.",
+            "Day 41 - Working with Databases: Normalize database structure for efficiency, Implement foreign keys and relationships, Use transactions in MySQL, Optimize database queries.",
+            "Day 42 - API Integration: Send HTTP requests using file_get_contents() and cURL, Handle API responses in JSON, Authenticate API requests with tokens, Use cURL for advanced API requests.",
+            "Day 43 - Handling Large Datasets: Paginate database results in PHP, Optimize SQL queries for large data sets, Implement lazy loading for efficiency, Use LIMIT and OFFSET for data pagination.",
+            "Day 44 - Advanced MySQLi Techniques: Perform complex queries with joins, Handle subqueries in MySQL, Use indexing to improve query performance, Implement database backup and restore procedures.",
+            "Day 45 - Error Logging and Monitoring: Set up error logging in PHP, Monitor error logs for issues, Handle and log exceptions, Implement a custom error handler.",
+            "Day 46 - JSON Web Tokens (JWT): Understand JWT and its use cases, Generate JWT for authentication, Decode and verify JWT in PHP, Use JWT for securing APIs.",
+            "Day 47 - Dependency Management with Composer: Install and configure Composer, Create a composer.json file, Use Composer to manage dependencies, Autoload classes using Composer.",
+            "Day 48 - Unit Testing in PHP: Write unit tests using PHPUnit, Test functions and methods for expected results, Mock objects and dependencies, Run automated tests in PHP.",
+            "Day 49 - Performance Optimization: Cache data to improve performance, Optimize database queries for speed, Use opcode caching with OPcache, Minimize file I/O operations.",
+            "Day 50 - Version Control with Git: Set up a Git repository, Track changes to files with commits, Collaborate on projects using Git, Understand branching and merging in Git.",
+            "Day 51 - PHP Frameworks Overview: Understand the role of PHP frameworks, Compare popular frameworks (Laravel, Symfony, CodeIgniter), Learn about MVC architecture, Explore Composer's role in frameworks.",
+            "Day 52 - Introduction to Laravel: Install Laravel using Composer, Set up your first Laravel project, Understand Laravel's directory structure, Explore the routing system in Laravel.",
+            "Day 53 - Laravel Controllers and Routes: Create controllers for handling requests, Define resource routes in Laravel, Understand route parameters, Implement middleware for route protection.",
+            "Day 54 - Laravel Blade Templating: Use Blade to create views, Pass data to views in Laravel, Understand Blade syntax and directives, Extend layouts with Blade.",
+            "Day 55 - Laravel Eloquent ORM: Set up Eloquent models, Perform CRUD operations with Eloquent, Use relationships (one-to-many, many-to-many), Query databases using Eloquent.",
+            "Day 56 - Laravel Form Handling: Validate forms in Laravel, Handle file uploads in Laravel, Display validation errors, Create custom form requests.",
+            "Day 57 - Laravel Authentication: Implement user authentication in Laravel, Use built-in authentication features, Protect routes with authentication middleware, Create user registration and login forms.",
+            "Day 58 - Final Project: Build a complete web application using PHP and Laravel, Implement all learned concepts, Deploy your application on a web server, Present your project to peers."
+        ];
+
+        // Function to load topics into the HTML
+        function loadTopics() {
+            const topicList = document.getElementById('topic-list');
+            topics.forEach((topic, index) => {
+                const topicItem = document.createElement('div');
+                topicItem.className = 'p-4 bg-gray-200 rounded-lg mb-4 shadow-md';
+                topicItem.innerHTML = `<strong>Day ${index + 1}:</strong> ${topic}`;
+                topicList.appendChild(topicItem);
+            });
+        }
+
+        // Load topics on page load
+        window.onload = loadTopics;
+    </script>
+</body>
+</html>
